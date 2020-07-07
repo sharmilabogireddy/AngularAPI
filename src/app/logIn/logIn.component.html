@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit) = "LogIn()">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label #username for="username" class="col-sm-2 col-form-label col-form-label-lg">Username:</label>
+      <input formControlName="userName" id="userName" type="text" class="form-control" required=""/>
+      <div *ngIf="f.userName.touched && f.userName.invalid" class="alert alert-danger">
+        <div *ngIf="f.userName.errors.required">UserName is required.</div>
+        <div *ngIf="f.userName.errors.minlength">UserName should be atleast 8 characters.</div>
+      </div>
+      <br/>
+      <label #password for="password" class="col-sm-2 col-form-label col-form-label-lg">Password:</label>
+      <input formControlName="password" id="password" type="password" class="form-control" required=""/>
+      <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+        <div *ngIf="f.password.errors.required">Password is required.</div>
+        <div *ngIf="f.password.errors.minlength">Password should be atleast 8 characters.</div>
+      </div>
+      <button type="submit" class="btn btn-success">LogIn</button>
+    </div>
+  </div>
+</form>
+
